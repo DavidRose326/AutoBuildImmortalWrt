@@ -45,6 +45,7 @@ PACKAGES="$PACKAGES python3-pip"
 PACKAGES="$PACKAGES python3-yaml"
 PACKAGES="$PACKAGES python3-flask"
 PACKAGES="$PACKAGES python3-aiohttp"
+PACKAGES="$PACKAGES shadow"
 PACKAGES="$PACKAGES shadow-utils"
 PACKAGES="$PACKAGES shadow-chpasswd"
 
