@@ -32,11 +32,14 @@ else
 fi
 
 # 网络设置
-uci set network.lan.ipaddr='192.168.1.2'
+uci set network.lan.ipaddr='192.168.1.1'
 uci del dhcp.lan.ra_slaac
 uci set dhcp.lan.limit='200'
 uci set dhcp.lan.netmask='255.255.255.0'
+uci set network.lan.dns='8.8.8.8 8.8.4.4'
 uci add_list dhcp.lan.dhcp_option='6,192.168.1.1'
+uci add_list dhcp.lan.dhcp_option='6,8.8.8.8'
+uci add_list dhcp.lan.dhcp_option='6,8.8.4.4'
 uci set dhcp.lan.ra='server'
 uci set dhcp.lan.dhcpv6='server'
 
