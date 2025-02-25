@@ -44,6 +44,18 @@ uci set dhcp.lan.force='1'
 uci set dhcp.lan.ra='server'
 uci set dhcp.lan.dhcpv6='server'
 
+# /etc/config/firewall
+uci del firewall.@zone[-1].network
+uci add_list firewall.@zone[-1].network='lan'
+uci add_list firewall.@zone[-1].network='ipv6'
+
+# /etc/config/network
+uci set network.ipv6=interface
+uci set network.@interface[-1].proto='dhcpv6'
+uci set network.@interface[-1].device='br-lan'
+uci set network.@interface[-1].reqaddress='try'
+uci set network.@interface[-1].reqprefix='auto'
+
 # 设置所有网口可访问网页终端
 uci delete ttyd.@ttyd[0].interface
 
