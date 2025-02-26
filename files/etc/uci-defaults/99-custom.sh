@@ -33,7 +33,7 @@ fi
 
 # 网络设置
 uci set network.lan.ipaddr='192.168.1.1'
-uci del dhcp.lan.ra_slaac
+# uci del dhcp.lan.ra_slaac
 uci set dhcp.lan.limit='100'
 uci set dhcp.lan.netmask='255.255.255.0'
 uci set network.lan.dns='223.5.5.5 223.6.6.6 8.8.8.8'
