@@ -39,7 +39,7 @@ PACKAGES="$PACKAGES openssh-sftp-server"
 # 增加几个必备组件 方便用户安装iStore
 PACKAGES="$PACKAGES fdisk"
 PACKAGES="$PACKAGES ca-bundle curl yq firewall4 ip-full kmod-inet-diag kmod-nft-tproxy kmod-tun"
-PACKAGES="$PACKAGES script-utils luci-proto-wireguard"
+PACKAGES="$PACKAGES script-utils luci-proto-wireguard qrencode"
 PACKAGES="$PACKAGES python3 python3-pip python3-yaml python3-flask python3-requests python3-aiohttp python3-chardet python3-psutil"
 PACKAGES="$PACKAGES luci-i18n-samba4-zh-cn"
 
