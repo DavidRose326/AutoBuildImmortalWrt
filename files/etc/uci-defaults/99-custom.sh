@@ -32,36 +32,24 @@ else
 fi
 
 # 网络设置
-uci set network.lan.ipaddr='192.168.1.2'
-uci set network.gateway='192.168.1.1'
+uci set network.lan.ipaddr='192.168.1.1'
 uci del dhcp.lan.ra_slaac
 uci set dhcp.lan.limit='100'
 uci set dhcp.lan.netmask='255.255.255.0'
 uci set network.lan.dns='223.5.5.5 223.6.6.6 8.8.8.8'
 uci set network.lan.broadcast='192.168.1.255'
-uci add_list dhcp.lan.dhcp_option='6,192.168.1.2'
+uci add_list dhcp.lan.dhcp_option='6,192.168.1.1'
 uci set dhcp.lan.force='1'
 uci set dhcp.lan.ra='server'
 uci set dhcp.lan.dhcpv6='server'
 
-# /etc/config/firewall
-uci del firewall.@zone[-1].network
-uci add_list firewall.@zone[-1].network='lan'
-uci add_list firewall.@zone[-1].network='ipv6'
-
-# /etc/config/network
-uci set network.ipv6=interface
-uci set network.@interface[-1].proto='dhcpv6'
-uci set network.@interface[-1].device='br-lan'
-uci set network.@interface[-1].reqaddress='try'
-uci set network.@interface[-1].reqprefix='auto'
-
 # 设置所有网口可访问网页终端
-uci delete ttyd.@ttyd[0].interface
+# uci delete ttyd.@ttyd[0].interface
 
 # 设置所有网口可连接 SSH
-uci set dropbear.@dropbear[0].Interface=''
-uci commit
+# uci set dropbear.@dropbear[0].Interface=''
+uci commit network
+uci commit dhcp
 
 # 设置编译作者信息
 FILE_PATH="/etc/openwrt_release"
